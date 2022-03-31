@@ -14,13 +14,16 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 import routes from './router/index'
-
+import {Provider} from 'react-redux';
+import store from './store/index';
 function App() {
 	const element = useRoutes(routes)
 	return (
-		<ConfigProvider locale={zhCN}>	
-			{element}	
-		</ConfigProvider>
+		<Provider store={store}>
+			<ConfigProvider locale={zhCN}>	
+				{element}	
+			</ConfigProvider>
+		</Provider>
 		
 	);
 }
